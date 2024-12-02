@@ -1,0 +1,3 @@
+fsmModify.c:10:6:modifyGreen	8	static
+fsmModify.c:28:6:modifyAmber	8	static
+fsmModify.c:46:6:modifyRed	8	static

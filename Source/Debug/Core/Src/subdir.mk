@@ -5,34 +5,49 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/blinkyLed.c \
+../Core/Src/button.c \
+../Core/Src/fsmAutomatic.c \
+../Core/Src/fsmModify.c \
+../Core/Src/global.c \
+../Core/Src/ledTraffic.c \
 ../Core/Src/main.c \
 ../Core/Src/scheduler.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
 ../Core/Src/stm32f1xx_it.c \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
-../Core/Src/system_stm32f1xx.c \
-../Core/Src/test_sche.c 
+../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+./Core/Src/blinkyLed.o \
+./Core/Src/button.o \
+./Core/Src/fsmAutomatic.o \
+./Core/Src/fsmModify.o \
+./Core/Src/global.o \
+./Core/Src/ledTraffic.o \
 ./Core/Src/main.o \
 ./Core/Src/scheduler.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
 ./Core/Src/stm32f1xx_it.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
-./Core/Src/system_stm32f1xx.o \
-./Core/Src/test_sche.o 
+./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+./Core/Src/blinkyLed.d \
+./Core/Src/button.d \
+./Core/Src/fsmAutomatic.d \
+./Core/Src/fsmModify.d \
+./Core/Src/global.d \
+./Core/Src/ledTraffic.d \
 ./Core/Src/main.d \
 ./Core/Src/scheduler.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
 ./Core/Src/stm32f1xx_it.d \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
-./Core/Src/system_stm32f1xx.d \
-./Core/Src/test_sche.d 
+./Core/Src/system_stm32f1xx.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

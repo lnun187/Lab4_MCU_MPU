@@ -1,5 +1,11 @@
-scheduler.c:32:6:SCH_Init	16	static
-scheduler.c:45:6:SCH_Update	4	static
-scheduler.c:49:6:SCH_Dispatch_Tasks	16	static
-scheduler.c:70:6:SCH_Add_Task	40	static
-scheduler.c:107:15:SCH_Delete_Task	16	static
+scheduler.c:12:5:isTimerExpired	16	static
+scheduler.c:19:6:st0	4	static
+scheduler.c:22:6:st1	4	static
+scheduler.c:25:6:st2	4	static
+scheduler.c:28:6:st3	4	static
+scheduler.c:31:6:st4	4	static
+scheduler.c:56:6:SCH_Init	16	static
+scheduler.c:69:6:SCH_Update	4	static
+scheduler.c:73:6:SCH_Dispatch_Tasks	16	static
+scheduler.c:94:6:SCH_Add_Task	40	static
+scheduler.c:131:15:SCH_Delete_Task	16	static

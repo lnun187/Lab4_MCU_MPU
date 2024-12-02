@@ -6,7 +6,31 @@
  */
 
 #include "scheduler.h"
+int timer_flag[10];
+int timer_counter[10];
 
+int isTimerExpired(int index){
+	if(timer_flag[index] == 1){
+		timer_flag[index] = 0;
+		return 1;
+	}
+	return 0;
+}
+void st0(){
+	timer_flag[0] = 1;
+}
+void st1(){
+	timer_flag[1] = 1;
+}
+void st2(){
+	timer_flag[2] = 1;
+}
+void st3(){
+	timer_flag[3] = 1;
+}
+void st4(){
+	timer_flag[4] = 1;
+}
 typedef struct sTask{
 	// Pointer to the task (must be a ’ void (void) ’ function )
 	void (*pTask)(void);
@@ -51,8 +75,8 @@ void SCH_Dispatch_Tasks(void) {
 // Dispatches ( runs ) the next task ( i f one i s ready )
 	while(temp){
 		if (temp->Delay == 0) {
-			(*(temp->pTask))(); // Run the task
-			temp->RunMe = 0; // Reset / reduce RunMe fl ag
+			temp->pTask(); // Run the task
+//			temp->RunMe = 0; // Reset / reduce RunMe fl ag
 // Periodic tasks w ill automatically run again
 // − i f thi s i s a ’one shot ’ task , remove i t from the array
 			SCH_Delete_Task();
@@ -80,22 +104,22 @@ void SCH_Add_Task(void function(), unsigned int DELAY, unsigned int PERIOD) {
 	int count = 0;
 	while(i){
 		count += i->Delay;
-			if(temp->Delay <= count) break;
-			prev = i;
-			i = i->next;
-		}
+		if(temp->Delay < count) break;
+		prev = i;
+		i = i->next;
+	}
 	if(!taskList.head) taskList.head = temp;
 	else if(!i) {
 		temp->Delay -= count;
 		prev->next = temp;
 	} else if(i == taskList.head){
-		i->Delay -= temp->Delay;
+		i->Delay = i->Delay - temp->Delay;
 		temp->next = i;
 		taskList.head = temp;
 	} else{
-		temp->Delay -= (count - i->Delay);
+		temp->Delay = temp->Delay - (count - i->Delay);
 		prev->next = temp;
-		i->Delay -= temp->Delay;
+		i->Delay = i->Delay - temp->Delay;
 		temp->next = i;
 	}
 	// F i r st find a gap in the array ( i f there i s one)
